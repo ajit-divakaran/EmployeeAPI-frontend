@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  serverUrl:string ='http://localhost:4001'
+  serverUrl:string ='https://employeeapi-backend.onrender.com'
 
 
 
