@@ -141,7 +141,7 @@ compareObjects(obj1:any, obj2:any) {
       }
     })
     this.toggler(popup)
-    this.getEmployees()
+    setTimeout(()=>this.getEmployees(),2000)
     }
     else{
       Swal.fire({

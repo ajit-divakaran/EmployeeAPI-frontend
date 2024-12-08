@@ -5,11 +5,11 @@
             
                 <div class="w-50 border border-black"  style="height: fit-content;">
                     <div class="shadow-lg bg-white px-5 py-5  ">
-                        <h2 class="mb-5 text-center"><i class="fa-solid fa-kitchen-set ms-2"></i>Employee Registration</h2>
+                        <h2 class="mb-5 text-center">Edit Employee</h2>
         
                         <div class="mb-2">
                             <input type="text" placeholder="Username" class="form-control mb-1"
-                             name="uname" [value]="currentName" #fname>
+                             name="uname" [(ngModel)] = "currentName" [value]="currentName" #fname>
                             
                          <span class="text-danger mb-2 d-none" #namestatus >* Invalid username</span>
         
@@ -17,21 +17,21 @@
     
                      <div class="mb-2">
                             <input type="email" placeholder="Email" class="form-control mb-1"
-                             name="email" [value]="currentEmail" #femail >
+                             name="email" [(ngModel)] = "currentEmail" [value]="currentEmail" #femail >
         
                         <span class="text-danger mb-2 d-none" #emailstatus>* Invalid email</span>
                      </div>
     
                    <div class="mb-4">
                             <input type="number" placeholder="Age" class="form-control mb-1"
-                             name="age" [value]="currentAge" #fage>
+                             name="age" [(ngModel)] = "currentAge"  [value]="currentAge" #fage>
         
                          <!-- <span class="text-danger mb-2">* Invalid age</span> -->
                    </div>
     
                    <div class="mb-4">
                     <span class="me-5 ms-2">Status: </span>
-                    <select  #fstatus>
+                    <select  [(ngModel)] = "currentStatus" #fstatus>
                         <option value="active">active</option>
                         <option value="inactive">inactive</option>
                     </select>
@@ -47,7 +47,12 @@
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-8 p-2 pt-5">
-           <div class="border border-black"> <input type="text" placeholder="Type to Search for the users" class="form-control rounded" [(ngModel)] = "searchkey"></div>
+           <!-- <div class="border border-black"> <input type="text" placeholder="Type to Search for the users" class="form-control rounded" [(ngModel)] = "searchkey" ></div> -->
+           <select [(ngModel)] = "searchkey">
+            <!-- <option value=""></option> -->
+            <option value="active">active</option>
+            <option value="inactive">inactive</option>
+           </select>
            <div class="mt-3 border border-black" style="min-height:70vh ;">
 
             <table class="table">

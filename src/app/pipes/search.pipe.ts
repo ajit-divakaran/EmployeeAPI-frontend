@@ -13,10 +13,18 @@ export class SearchPipe implements PipeTransform {
       if(!allEmployee || searchkey == ""){
         return allEmployee
       }
+
+
+
+
+
+        result = allEmployee.filter((item)=>item.status==searchkey)
+        console.log(result)
+        return result;
+
   
-      result = allEmployee.filter((item)=>item.firstName.toLowerCase().trim().includes(searchkey.toLowerCase().trim()))
-      return result;
-    
+      // result = allEmployee.filter((item)=>item.name.toLowerCase().trim().includes(searchkey.toLowerCase().trim()))
+      // return result;
   }
 
 }
