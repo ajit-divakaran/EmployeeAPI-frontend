@@ -1,0 +1,61 @@
+<div class="conatiner-fluid mb-5">
+    <div class="row w-full">
+         
+        <div class="col-md-1"></div>
+        <div class="col-md-10 d-flex justify-content-center mb-5 mb-md-0">
+           <form class="w-md-50" [formGroup]="regsiterForm" (ngSubmit)="register()">
+                <div class="shadow-lg px-5 py-5  ">
+                    <h2 class="mb-5 text-center"><i class="fa-solid fa-kitchen-set ms-2"></i>Employee Registration</h2>
+    
+                    <div class="mb-2">
+                        <input type="text" placeholder="Username" class="form-control mb-1"
+                        formControlName="username" name="uname">
+                        
+                      @if(regsiterForm.get('username')?.errors && regsiterForm.get('username')?.touched){  <span class="text-danger mb-2">* Invalid username</span>}
+    
+                    </div>
+
+                 <div class="mb-2">
+                        <input type="text" placeholder="Email" class="form-control mb-1"
+                        formControlName="email" name="email">
+    
+                        @if(regsiterForm.get('email')?.errors && regsiterForm.get('email')?.touched){<span class="text-danger mb-2 ">* Invalid email</span>}
+                 </div>
+
+               <div class="mb-4">
+                        <input type="text" placeholder="Age" class="form-control mb-1"
+                        formControlName="age" name="age">
+    
+                        @if(regsiterForm.get('age')?.errors && regsiterForm.get('age')?.touched){<span class="text-danger mb-2">* Invalid age</span>}
+               </div>
+
+               <div class="mb-4">
+                <span class="me-5 ms-2">Status: </span>
+                <select formControlName="status">
+                    <option value="active">active</option>
+                    <option value="inactive">inactive</option>
+                </select>
+               </div>
+
+                    <button class="btn btn-success w-100 mb-4" type="submit">Register</button>
+                    <p>Already User? <a routerLink = '/login' class="text-success">Login</a></p>
+    
+                </div>
+           </form>
+        </div>
+        <!-- <div class="col-md-5 d-flex justify-content-center align-items-center">
+            <div>
+                <h2>Create an Account</h2>
+                <p class="mb-4">What you will get ? </p>
+                <ul>
+                    <li>Different Recipe</li>
+                    <li>Easy way to cook</li>
+                    <li>Save your favourite Recipe</li>
+                    <li>Download your Recipe</li>
+                </ul>
+
+            </div>
+        </div> -->
+        <div class="col-md-1"></div>
+    </div>
+</div>

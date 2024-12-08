@@ -1,0 +1,79 @@
+
+<div class="container-fluid">
+    <div class="row position-relative">
+        <div #popup class="position-fixed d-flex justify-content-center align-items-center z-1 bg-dark bg-opacity-10 w-100 d-none" style="height: 100vh;" >
+            
+                <div class="w-50 border border-black"  style="height: fit-content;">
+                    <div class="shadow-lg bg-white px-5 py-5  ">
+                        <h2 class="mb-5 text-center"><i class="fa-solid fa-kitchen-set ms-2"></i>Employee Registration</h2>
+        
+                        <div class="mb-2">
+                            <input type="text" placeholder="Username" class="form-control mb-1"
+                             name="uname" [value]="currentName" #fname>
+                            
+                         <span class="text-danger mb-2 d-none" #namestatus >* Invalid username</span>
+        
+                        </div>
+    
+                     <div class="mb-2">
+                            <input type="email" placeholder="Email" class="form-control mb-1"
+                             name="email" [value]="currentEmail" #femail >
+        
+                        <span class="text-danger mb-2 d-none" #emailstatus>* Invalid email</span>
+                     </div>
+    
+                   <div class="mb-4">
+                            <input type="number" placeholder="Age" class="form-control mb-1"
+                             name="age" [value]="currentAge" #fage>
+        
+                         <!-- <span class="text-danger mb-2">* Invalid age</span> -->
+                   </div>
+    
+                   <div class="mb-4">
+                    <span class="me-5 ms-2">Status: </span>
+                    <select  #fstatus>
+                        <option value="active">active</option>
+                        <option value="inactive">inactive</option>
+                    </select>
+                   </div>
+    
+                        <button class="btn btn-success w-100 mb-4" (click)="editUser(popup,fname,femail,fage,fstatus,namestatus,emailstatus)">Edit</button>
+                       
+        
+                    </div>
+               </div>
+            
+            
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8 p-2 pt-5">
+           <div class="border border-black"> <input type="text" placeholder="Type to Search for the users" class="form-control rounded" [(ngModel)] = "searchkey"></div>
+           <div class="mt-3 border border-black" style="min-height:70vh ;">
+
+            <table class="table">
+                <thead >
+                    <tr class="table-secondary">
+                        <th >Name</th>
+                        <th >Age</th>
+                        <th >Email</th>
+                        <th >Status</th>
+                        <th>Edit User</th>
+                        <th></th>
+                    </tr>
+                </thead>
+              @if(allEmployee.length) { <tbody>
+                    @for(item of allEmployee | search:searchkey ; track $index){<tr>
+                        <td>{{item.firstName}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.status}}</td>
+                        <td ><img class="ms-4 " src="https://cdn-icons-png.flaticon.com/128/1160/1160515.png" alt="" width="18px" (click)="changeCurrent(item.firstName,item.email,item.age,item.status,item._id,popup)"></td>
+                        <td><img src="https://cdn-icons-png.flaticon.com/128/6460/6460112.png" alt=""  width="18px" (click)="deleteUser(item.firstName,item.email)"></td>
+                    </tr>}
+                </tbody>}
+            </table>
+           </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
